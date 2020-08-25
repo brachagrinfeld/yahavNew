@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+    top: 18px;
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+    height: 12px;
+    border-radius: 10px
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-track-background,
+  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    height: 100%;
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    background-color: #f7a499;
+  }
+  .mat-slider.mat-slider-horizontal .mat-slider-ticks {
+    height: 100%;
+  }
+  
+  
+  .mat-accent .mat-slider-thumb {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: solid 2px gray;
+    bottom: -20px;
+    right: -20px;
+  }
+  .mat-slider-thumb-container .mat-slider-thumb-label {
+    background-color: #f7a499;
+
+  }
+  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    background-color: white;
+  }
+
+
+ .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, 
+.mat-step-header .mat-step-icon-state-edit {
+    background-color: #f7a499 !important;
+}
+.mat-vertical-stepper-header {
+    display: flex;
+    align-items: center;
+    height: 4px !important;
+}
+
+.footer-app {
+    width: 740px;
+    height: 66px;
+    background-image: url(footer.jpeg);
+    /* background-size: cover; */
+    margin-bottom: 0%;
+}
+
+.header-app {
+    width: 355px;
+    height: 105px;
+    background-image: url(logo.jpg);
+    background-size: cover;
+}
+
+
+.footer-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+// .mat-card {
+//     transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+//     display: block;
+//     position: relative;
+//     padding: 16px;
+//     border-radius: 4px;
+//     width: 90%;
+//     height: 80%;
+// }
+
+// .mat-card:not([class*=mat-elevation-z]) {
+//     box-shadow: 0 2px 1px -1px rgba(0,0,0,1), 
+//                 0 1px 1px 0 rgba(0,0,0,1), 
+//                 0 1px 3px 0 rgba(0,0,0,1);
+// }
+
+// .aaa {
+//     background-image: url('footer.jpeg');
+//     background-size: cover;
+//     height: 100px;
+// }
+

@@ -1,0 +1,195 @@
+<h2 class="title">ברוכים הבאים לכלי הדיגיטלי לדרוג רמת השייכות של תלמידה במצבי סיכון</h2>
+<div class="footer-wrap">
+  <form [formGroup]="personForm">
+<mat-form-field appearance="fill" class="field">
+  <mat-label>שם התלמידה</mat-label>
+  <input matInput formControlName="name"
+  >
+</mat-form-field>
+<mat-form-field appearance="fill" class="field">
+  <mat-label>כיתה</mat-label>
+  <input matInput formControlName="class">
+</mat-form-field>
+<mat-form-field appearance="fill" class="field">
+  <mat-label>מחנכת</mat-label>
+  <input matInput formControlName="teacher">
+</mat-form-field>
+</form>
+
+</div>
+<div class="warp">
+  <!-- <mat-card> -->
+  <div >
+    <h4> דרגי את רמת השייכות של הילדה מאפס עד עשר -</h4>
+    <h4>כאשר 0 מראה על ניתוק מוחלט, ו- 10 על קשר מוחלט, בכל המדדים הבאים:</h4>
+    <!-- <a  href="/file.pdf">למסמך המלא</a> -->
+    <mat-vertical-stepper [linear]=true #stepper>
+      <form class="example-container" [formGroup]="form">
+
+      <mat-step >
+        <ng-template matStepLabel>נוכחות</ng-template>
+
+        <div>
+          <span>דרגי את רמת הנוכחות של הילדה מאפס עד עשר</span>
+          <div >
+            <mat-slider
+            style="min-width: 500px"
+                class="example-margin"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]=true
+                formControlName="presence"
+                [tickInterval]="'auto'"
+                >
+            </mat-slider>‏
+          </div>
+      </div>
+      </mat-step>
+      <mat-step >
+        <ng-template matStepLabel>מעורבות לימודית</ng-template>
+
+        <div>
+          <span>דרגי את המעורבות הלימודית של הילדה מאפס עד עשר</span>
+          <div>
+          <mat-slider
+            style="min-width: 500px"
+                class="example-margin"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]=true
+                formControlName="study"
+                [tickInterval]="'auto'"
+                >
+            </mat-slider>‏
+          </div>
+      </div>
+    
+      </mat-step>
+      <mat-step>
+        <div>
+          <ng-template matStepLabel>קבלת סמכות מבוגרים, אמון בצוות</ng-template>
+
+          <span>דרגי את קבלת הסמכות של הילדה מאפס עד עשר</span>
+          <div>
+          <mat-slider
+            style="min-width: 500px"
+                class="example-margin"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]=true
+                formControlName="trust"
+                [tickInterval]="'auto'"
+                >
+            </mat-slider>‏
+          </div>
+      </div>
+      </mat-step>
+      <mat-step >
+        <ng-template matStepLabel>מצב נפשי, התנהגותי</ng-template>
+
+        <div>
+          <span>דרגי את המצב הנפשי וההתנהגותי של הילדה מאפס עד עשר</span>
+          <div>
+          <mat-slider
+            style="min-width: 500px"
+                class="example-margin"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]=true
+                formControlName="emotionalState"
+                [tickInterval]="'auto'"
+                >
+            </mat-slider>‏
+          </div>
+      </div>
+    
+      </mat-step>
+      <mat-step >
+        <ng-template matStepLabel>מעורבות חברתית</ng-template>
+
+        <div>
+          <span>דרגי את המעורבות החברתית של הילדה מאפס עד עשר</span>
+          <div>
+          <mat-slider
+            style="min-width: 500px"
+                class="example-margin"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]=true
+                formControlName="socialAbility"
+                [tickInterval]="'auto'"
+                >
+            </mat-slider>‏
+          </div>
+      </div>
+    
+      </mat-step>
+      <mat-step >
+        <ng-template matStepLabel>פערים בין הבית ובית הספר</ng-template>
+
+        <div>
+          <span>דרגי את רמת בפער בין הבית לבית הספר מאפס עד עשר</span>
+          <div>
+          <mat-slider
+            style="min-width: 500px"
+                class="example-margin"
+                [max]="10"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]=true
+                formControlName="homeSchool"
+                [tickInterval]="'auto'"
+                >
+            </mat-slider>‏
+          </div>
+      </div>
+    
+      </mat-step>
+      </form>
+    </mat-vertical-stepper>
+  </div>
+
+
+
+
+
+
+
+
+<div></div>
+
+
+  <div id="chart" class="chart">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>גרף שייכות</mat-card-title>
+    <mat-card-subtitle>{{personForm.get('name').value}}
+     <span *ngIf="personForm.get('class').value !== ''">
+        - {{personForm.get('class').value}}</span>
+        <span *ngIf="personForm.get('teacher').value !== ''">
+         ({{personForm.get('teacher').value}})</span> 
+        </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [yaxis]="chartOptions.yaxis"
+      [xaxis]="chartOptions.xaxis"
+      [legend]="chartOptions.legend"
+      [colors]="chartOptions.colors"
+      [grid]="chartOptions.grid"
+    ></apx-chart>
+  </mat-card-content>
+  </mat-card> 
+
+  </div>
+  </div>
